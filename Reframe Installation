@@ -4,8 +4,9 @@
 salloc -p interactive --qos debug --time=2:00:00 -N 1 -n 1 -c 32
 ```
 
-2.module load tools/EasyBuild/4.9.1 
-
+```bash 
+module load tools/EasyBuild/4.9.1 
+```
 3.module use ~/.local/easyconfig/modules/all
 4.module use /work/projects/mhpc-softenv/easybuild/aion-epyc-prod-2023a/modules/all/
 5.module use /home/users/$USER/easybuild/modules/all 
