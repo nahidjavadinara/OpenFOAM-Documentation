@@ -8,8 +8,8 @@
 **Purpose** The goals of this project are 1) to install recent versions of OpenFOAM on the Uni.lu HPC platform using EasyBuild, and 2) to set up a regression testing configuration for the installed OpenFOAM using ReFrame. 
 
 # ** Running Test Examples for Post Processing Phase** 
-  # **simpleCar Example with OpenFOAM v2312** 
-   **Loading modules** 
+  # **Verification and Validation Example with OpenFOAM v2312** 
+   **Loading required modules** 
    ```bash
    module load tools/EasyBuild/4.9.1
    module use ~/.local/easyconfig/modules/all
@@ -21,15 +21,30 @@
    module use /home/users/$USER/easybuild/modules/all
    module load cae/OpenFOAM/v2312-foss-2023a
    ```
-Now, we're gonna supposed to download tutorials of openfoam v2312, then put them in openfoam directory that we have created for motorbike example: 
+Now, we're gonna supposed to download tutorials of openfoam v2312, then upload them in openfoam directory that we have created for motorbike example: 
    ```bash
    wget https://develop.openfoam.com/Development/openfoam/-/archive/OpenFOAM-v2312/openfoam-OpenFOAM-v2312.zip?     path=tutorials/incompressible/simpleFoam -O openfoam-OpenFOAM-v2312-tutorials-incompressible-simpleFoam.zip
    mkdir -p $HOME/OpenFOAM
    scp openfoam-OpenFOAM-v2312-tutorials-incompressible-simpleFoam.zip $HOME/OpenFOAM
    unzip $HOME/OpenFOAM/openfoam-OpenFOAM-v2312-tutorials-incompressible-simpleFoam.zip -d $HOME/OpenFOAM
-   cd $HOME/OpenFOAM/openfoam-OpenFOAM-v2312-tutorials-incompressible-simpleFoam/tutorials/incompressible/simpleFoam
-   
+   cd $HOME/OpenFOAM/openfoam-OpenFOAM-v2312/tutorials/verificationAndValidation/turbulenceModels/planeChannel
   ```
+Source the OpenFOAM Environment Setup
+
+```bash
+source /home/users/$USER/easybuild/software/OpenFOAM/v2312-foss-2023a/OpenFOAM-v2312/etc/bashrc
+```
+Verifying the Environment Variable 
+```bash
+echo $WM_PROJECT_DIR
+```
+Execution and running 
+```bash
+chmod +x Allrun
+srun -n 1 -c 32 ./Allrun
+./Allrun
+
+
 
   
   
