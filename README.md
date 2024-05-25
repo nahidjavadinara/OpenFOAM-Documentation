@@ -45,9 +45,3 @@ srun -n 1 -c 32 ./Allrun
 ./Allrun
 
 ![image](https://github.com/nahidjavadinara/OpenFOAM-Documentation/assets/161458338/3de03a1c-7e49-459a-a802-5a05b7f6ea08)
-
-
-
-
-  
-  
