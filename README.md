@@ -44,5 +44,8 @@ chmod +x Allrun
 srun -n 1 -c 32 ./Allrun
 ./Allrun
 ```
+![image](https://github.com/nahidjavadinara/OpenFOAM-Documentation/assets/161458338/2d7b007b-dffd-4fdb-8ea8-8b8da2a357e1) 
 
-![image](https://github.com/nahidjavadinara/OpenFOAM-Documentation/assets/161458338/3de03a1c-7e49-459a-a802-5a05b7f6ea08)
+![image](https://github.com/nahidjavadinara/OpenFOAM-Documentation/assets/161458338/5e14d6a4-fe7b-487f-a990-3ef6ff926728)
+
+
