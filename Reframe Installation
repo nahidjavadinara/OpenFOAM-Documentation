@@ -1,0 +1,19 @@
+# Reframe Installation 
+
+```bash
+salloc -p interactive --qos debug --time=2:00:00 -N 1 -n 1 -c 32
+```
+
+2.module load tools/EasyBuild/4.9.1 
+
+3.module use ~/.local/easyconfig/modules/all
+4.module use /work/projects/mhpc-softenv/easybuild/aion-epyc-prod-2023a/modules/all/
+5.module use /home/users/$USER/easybuild/modules/all 
+
+6.) If you dont see 4.3.3 version with this line: module spider reframe, go to step 7 and if you see , go to step 8.......
+7i)export EASYBUILD_JOB_BACKEND='Slurm',
+7ii)export EASYBUILD_PREFIX=$HOME/easybuild 
+7iii)export EASYBUILD_BUILDPATH=/dev/shm/$USER
+7iv)"eb/home/users/pvares/.local/easybuild/software/EasyBuild/4.9.1/easybuild/easyconfigs/r/ReFrame/ReFrame-4.3.3.eb --job --job-cores 64 --job-max-walltime 3 --robot --trace"
+8)module load devel/ReFrame/4.3.3 
+
