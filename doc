@@ -1,0 +1,92 @@
+# HPCSE_Final_Project
+
+## Table of Contents
+- [Introduction](#introduction)
+- [Installation and Regression Testing of OpenFOAM](#installation-and-regression-testing-of-openfoam)
+  - [Part I: Installing EasyBuild and OpenFOAM](#part-i-installing-easybuild-and-openfoam)
+  - [Part II: Running OpenFOAM-v2312 motorBike Tutorial on HPC](#part-ii-running-openfoam-v2312-motorbike-tutorial-on-hpc)
+  - [Part III: Testing turbulenceModels from planeChannel](#part-iii-testing-turbulencemodels-from-planechannel)
+  - [Part IV: Test atmDownstreamDevelopment from atmosphericModels](#part-iv-test-atmdownstreamdevelopment-from-atmosphericmodels)
+  - [Part V: ChemFoam Tutorial Setup](#part-v-chemfoam-tutorial-setup)
+  - [Part VI: ChemFoam h2 Tutorial Setup](#part-vi-chemfoam-h2-tutorial-setup)
+  - [ReFrame Installation and Setup Guide](#reframe-installation-and-setup-guide)
+- [Resources](#resources)
+
+## Introduction
+OpenFOAM is a free, open source computational fluid dynamics (CFD) software package released by the OpenFOAM Foundation. It is extensively used in engineering and science for complex fluid flows and has a wide range of features to solve problems involving chemical reactions, turbulence, heat transfer, solid dynamics, and electromagnetics.
+
+**Scope:** Utilized widely in research organizations, academic institutes, and industries such as automotive, manufacturing, process engineering, and environmental engineering.
+
+**Purpose:** 
+- To install recent versions of OpenFOAM on the Uni.lu HPC platform using EasyBuild.
+- To set up a regression testing configuration for the installed OpenFOAM using ReFrame.
+
+![OpenFOAM Overview](image-link-here)  <!-- Replace `image-link-here` with the actual image URL -->
+
+## Installation and Regression Testing of OpenFOAM
+
+### Part I: Installing EasyBuild and OpenFOAM
+1. **Connection to a Compute Node**
+   - **Command:**
+     ```bash
+     salloc -p interactive --qos debug --time=2:00:00 -N 1 -n 1 -c 64
+     ```
+
+2. **Installing the latest release of EasyBuild**
+   - **Command:**
+     ```bash
+     eb --install-latest-eb-release
+     ```
+
+3. **Looking for available EasyBuild modules**
+   - **Command:**
+     ```bash
+     module spider easybuild
+     ```
+
+4. **Loading EasyBuild version 4.9.1**
+   - **Command:**
+     ```bash
+     module load tools/EasyBuild/4.9.1
+     ```
+
+5. **Adding EasyBuild module files to the module path**
+   - **Commands:**
+     ```bash
+     module use ~/.local/easyconfig/modules/all
+     module use /work/projects/mhpc-softenv/easybuild/aion-epyc-prod-2023a/modules/all/
+     ```
+
+6. **Submitting installations as Slurm jobs**
+   - **Command:**
+     ```bash
+     export EASYBUILD_JOB_BACKEND='Slurm'
+     export EASYBUILD_PREFIX=$HOME/easybuild
+     export EASYBUILD_BUILDPATH=/dev/shm/$USER
+     eb /home/users/$USER/.local/easybuild/software/EasyBuild/4.9.1/easybuild/easyconfigs/o/OpenFOAM/OpenFOAM-v2312-foss-2023a.eb --job --job-cores 32 --job-max-walltime 11 --robot --trace
+     ```
+
+### [Part II: Running OpenFOAM-v2312 motorBike Tutorial on HPC](#part-ii-running-openfoam-v2312-motorbike-tutorial-on-hpc)
+Detailed steps including downloading tutorial files, setting up the environment, and running the simulations.
+
+### [Part III: Testing turbulenceModels from planeChannel](#part-iii-testing-turbulencemodels-from-planechannel)
+Instructions for downloading, setting up, and testing turbulence models.
+
+### [Part IV: Test atmDownstreamDevelopment from atmosphericModels](#part-iv-test-atmdownstreamdevelopment-from-atmosphericmodels)
+Guide on how to run atmospheric model tests using OpenFOAM.
+
+### [Part V: ChemFoam Tutorial Setup](#part-v-chemfoam-tutorial-setup)
+Steps to download and run the ChemFoam tutorial for combustion simulations.
+
+### [Part VI: ChemFoam h2 Tutorial Setup](#part-vi-chemfoam-h2-tutorial-setup)
+Procedure to set up and execute the ChemFoam h2 tutorial.
+
+### [ReFrame Installation and Setup Guide](#reframe-installation-and-setup-guide)
+Detailed instructions on installing and configuring ReFrame with EasyBuild on the HPC platform.
+
+## Resources
+For further information, refer to the following OpenFOAM and ReFrame documentation:
+
+- [OpenFOAM Documentation](https://openfoam.org/documentation/)
+- [ReFrame GitHub Repository](https://github.com/reframe-hpc/reframe)
+- [EasyBuild Documentation](https://easybuilders.github.io/easybuild/)
