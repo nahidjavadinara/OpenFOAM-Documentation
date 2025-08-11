@@ -18,9 +18,9 @@ OpenFOAM is a C++ toolbox for the development of customized numerical solvers, a
 - [Part III: Reframe Installation](https://github.com/parsavares/HPCSE_End_Project?tab=readme-ov-file#iii-reframe-installation-and-setup-guide)
 
 ### Authors: 
-   **Parsa VARES** 
+   **Nahid JAVADINARAB** 
   
-   **Nahid JAVADINARAB**
+   **Parsa Vares**
 
 ##  Introduction
 
